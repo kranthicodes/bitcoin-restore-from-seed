@@ -8,9 +8,11 @@ class UI {
     const resultContainer = document.querySelector("#result-container");
     const taprootInputField = document.querySelector("#taproot-input");
     const pubKeyInputField = document.querySelector("#pubkey-input");
+    const wifInputField = document.querySelector("#wif-input");
 
     taprootInputField.value = resultData.taprootAddress;
     pubKeyInputField.value = resultData.pubkeyHex;
+    wifInputField.value = resultData.wifKey;
 
     resultContainer.classList.remove("hidden");
   }
@@ -72,19 +74,44 @@ async function handleRestoreFromSeed() {
     const childNode = root.derivePath(`m/86'/0'/0'/0/0`);
 
     const publicKeyHex = childNode.publicKey.toString("hex");
+    const privateKey = childNode.privateKey;
     const childNodeXOnlyPubkey = childNode.publicKey.slice(1, 33);
 
-    const { address, output } = bitcoin.payments.p2tr({
+    const { address } = bitcoin.payments.p2tr({
       internalPubkey: childNodeXOnlyPubkey,
     });
+
+    const wifKey = wif.encode(128, privateKey, true); //for testnet 0xEF, for mainnet 0x80
 
     const resultData = {
       taprootAddress: address,
       pubkeyHex: publicKeyHex,
+      wifKey,
     };
+
+    // Save WIF file
+    document
+      .querySelector("#export-btn")
+      .addEventListener("click", () => downloadFile("wallet.wif", wifKey));
 
     UI.displayResult(resultData);
   } catch (error) {
     UI.setError(error.message);
   }
+}
+
+function downloadFile(filename, text) {
+  const El = document.createElement("a");
+  El.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+  );
+  El.setAttribute("download", filename);
+
+  El.style.display = "none";
+  document.body.appendChild(El);
+
+  El.click();
+
+  document.body.removeChild(El);
 }

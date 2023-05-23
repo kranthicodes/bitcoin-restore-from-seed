@@ -22,7 +22,7 @@
         </div>
         <!-- Seed phrase input container begin -->
         <div class="flex flex-col gap-1">
-          <span class="text-sm text-slate-600 font-medium">Seed Phrase</span>
+          <span class="ml-1 text-sm text-slate-600 font-medium">Seed Phrase</span>
           <input
             id="seed-input"
             class="text-slate-600 focus:outline-none focus:ring-1 focus:ring-sky-200 focus:border-sky-300 px-2 h-10 bg-amber-50 border border-slate-300 rounded-md"
@@ -37,12 +37,6 @@
           >
             Restore
           </button>
-          <button
-            id="import-btn"
-            class="bg-amber-400 px-8 py-2 rounded-full text-white"
-          >
-            Import WIF
-          </button>
         </div>
         <!-- Action buttons end -->
 
@@ -52,7 +46,7 @@
           class="hidden flex flex-col items-center bg-slate-200 p-6 rounded-md"
         >
           <div class="w-full flex flex-col gap-1">
-            <span class="text-sm text-slate-600 font-medium"
+            <span class="ml-1 text-sm text-slate-600 font-medium"
               >Taproot Address</span
             >
             <div class="flex flex-wrap items-stretch w-full mb-4 relative">
@@ -72,7 +66,9 @@
             </div>
           </div>
           <div class="w-full flex flex-col gap-1">
-            <span class="text-sm text-slate-600 font-medium">Public Key</span>
+            <span class="ml-1 text-sm text-slate-600 font-medium"
+              >Public Key</span
+            >
             <div class="flex flex-wrap items-stretch w-full mb-4 relative">
               <div class="flex -mr-px">
                 <span
@@ -82,6 +78,24 @@
               </div>
               <input
                 id="pubkey-input"
+                type="text"
+                disabled
+                value="032bd0f56df19459953b52c6b6ee0b1f0e2e136c6c27e290028fdaaeadc9cb52a4"
+                class="disabled:bg-slate-50 flex-shrink flex-grow flex-auto focus:outline-none leading-normal w-px flex-1 border h-10 border-grey-light rounded rounded-l-none px-3 relative text-slate-500"
+              />
+            </div>
+          </div>
+          <div class="w-full flex flex-col gap-1">
+            <span class="ml-1 text-sm text-slate-600 font-medium">WIF Key</span>
+            <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+              <div class="flex -mr-px">
+                <span
+                  class="flex items-center leading-normal bg-sky-100 rounded rounded-r-none border border-r-0 border-grey-light px-3 whitespace-no-wrap text-slate-600 text-md"
+                  >base58</span
+                >
+              </div>
+              <input
+                id="wif-input"
                 type="text"
                 disabled
                 value="032bd0f56df19459953b52c6b6ee0b1f0e2e136c6c27e290028fdaaeadc9cb52a4"
