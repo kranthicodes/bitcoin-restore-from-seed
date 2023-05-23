@@ -16,6 +16,7 @@
     "browserify": "^17.0.0",
     "ecpair": "^2.1.0",
     "safe-buffer": "^5.2.1",
-    "tiny-secp256k1": "^2.2.1"
+    "tiny-secp256k1": "^2.2.1",
+    "wif": "^2.0.6"
   }
 }
