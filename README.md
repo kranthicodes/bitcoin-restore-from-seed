@@ -5,9 +5,9 @@
 
 ## Technologies in use
 
-- [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib) - provides a p2tr function to generate p2tr address, output
-- [bip32](https://github.com/bitcoinjs/bip32) - Orderbook Data and Markets
-- [@bitcoinerlab/secp256k1](https://github.com/bitcoinerlab/secp256k1) - Connection
+- [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib) - Provides a p2tr function to generate p2tr address, output
+- [bip32](https://github.com/bitcoinjs/bip32) - Derives private and public keys of a wallet from a binary master seed
+- [@bitcoinerlab/secp256k1](https://github.com/bitcoinerlab/secp256k1) - For performing elliptic curve operations on the secp256k1 curve
 - [safe-buffer](https://github.com/feross/safe-buffer) - Safer Buffer API
 - [WIF](https://github.com/bitcoinjs/wif) - Wallet import format that supports PK encoding and decoding
 - [browserify](https://browserify.org/) - allows to use Node.js modules directly in the browser. 
